@@ -1,0 +1,69 @@
+/** Media Queries **/
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.oculto {
+  display: none;
+}
+
+.pagina {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+}
+
+.header .nombre-sitio {
+  flex: 0 0 5rem;
+  background-color: #003f8c;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header .nombre-sitio {
+    flex: 0 0 20rem;
+  }
+}
+
+.header .nombre-sitio h1 {
+  color: #FFFFFF;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header .nombre-sitio .escritorio {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header .nombre-sitio .movil {
+    display: none;
+  }
+}
+
+.contenedor-principal {
+  flex: 1;
+}
