@@ -11,6 +11,7 @@ html {
 body {
     font-family: $fuente_principal;
     height: 100%;
+    background-color: $gris;
 }
 img {
     max-width: 100%;
@@ -20,6 +21,12 @@ img {
 }
 .oculto {
     display: none;
+}
+
+.no-menu.pagina {
+    .sidebar {
+        margin-left: -20rem;
+    }
 }
 
 .pagina {
@@ -67,6 +74,14 @@ img {
         display: flex;
         align-items: center;
         padding: 1rem;
+
+        i {
+            color: $blanco;
+            font-size: 1.6rem;
+        }
+        .fa-arrow-right {
+            display: none;
+        }
     }
     .menu-derecho {
         display: flex;
@@ -96,6 +111,7 @@ img {
     flex: 0 0 20rem;
     padding: 1rem;
     color: $blanco;
+    transition: margin-left .3s ease;
 
     .usuario {
         display: flex;
@@ -121,9 +137,102 @@ img {
             padding-left: 1rem;
         }
     }
+    .menu-admin {
+        margin-top: 2rem;
+    }
+}
+
+.menu-admin {
+    .menu {
+        list-style: none;
+        padding: 0 0 0 1rem;
+
+        > li {
+            padding: .5rem;
+            &:hover {
+                ul {
+                    display: block;
+                }
+            }
+            a {
+                color: $blanco;
+                text-decoration: none;
+                padding: .5rem;
+                transition: padding-left .3s ease;
+                &:hover {
+                    background-color: $primario;
+                    padding-left: 2rem;
+                }
+            }
+            ul {
+                display: none;
+                margin-top: 1rem;
+                list-style: none;
+                background-color: darken($grisOscuro, 3);
+                padding: 1rem;
+                li {
+                    margin-bottom: 1rem;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .contenedor-principal {
     flex: 1;
     display: flex;
+}
+
+.contenido {
+    flex: 1;
+    padding: 2rem;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .campo {
+        flex: 0 0 100%;
+        @include tablet {
+            flex: 0 0 calc(50% - 1rem);
+        }
+        display: flex;
+        margin-bottom: 1rem;
+        align-items: center;
+        &.expandir {
+            flex: 0 0 calc(100% - 1rem);
+            align-items: flex-start;
+            label {
+                flex: 0 0 12.5%;
+            }
+            textarea {
+                flex: 1;
+            }
+        }
+        label {
+            flex: 0 0 25%;
+        }
+        input[type="text"] {
+            flex: 0 0 75%;
+            height: 2rem;
+        }
+        .opciones {
+            display: flex;
+            flex: 1;
+            label {
+                padding-left: 1rem;
+            }
+        }
+        &.enviar {
+            display: flex;
+            justify-content: flex-end;
+            .boton {
+                @include boton($primario);
+            }
+        }
+    }
 }
